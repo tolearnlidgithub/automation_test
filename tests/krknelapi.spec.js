@@ -62,6 +62,8 @@ test('Api for place an order', async ({ page }) => {
   page.on('response', response=> console.log(response))
     
     await page.locator(`tbody`).waitFor()  // wait for table
+    await page.screenshot( { path: "secreenshot.jpeg"})                                                   ///SCREENA ANUM
+
     
     await page.pause()
     const order_id_columns = await page.locator('tbody tr th').allInnerTexts()
