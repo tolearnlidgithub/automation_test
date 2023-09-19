@@ -40,7 +40,21 @@ test("try to place an order with api", async ({ page }) => {
       route => route.continue({
         url: "https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=650957237244490f95b2f18a"
     }))
+
+
     await page.locator('button:has-text("View")').first().click()
+    const unathorized_text = await page.locator('.email-wrapper .blink_me')
+    if  (await (`${unathorized_text}:has-text ("You are not authorize to view this order")`)) {
+        console.log("it is found")
+    }
+
+    else { console.log("error")}
+
+
+    // const text = unathorized_text.textContent()
+    // console.log(text)
+    //await expect(unathorized_text).toEqual("You are not authorize to view this order")
+ 
     await page.pause()
     
    
