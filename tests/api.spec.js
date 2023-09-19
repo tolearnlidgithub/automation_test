@@ -1,5 +1,5 @@
 const { test, expect, request } = require('@playwright/test');
-const {Api} =   require ('../tapi/Api')
+const { Api } = require('../tapi/Api')
 
 const loginPayload = {
   userEmail: "sss@mailinator.com",
@@ -13,13 +13,13 @@ const product_name1 = 'ADIDAS ORIGINAL';                                        
 
 test("try to place an order with api", async ({ page }) => {
   const api_context = await request.newContext(); // Initialize api_context
-  const api = new Api(api_context,loginPayload)
-  const token = await api.getToken() 
+  const api = new Api(api_context, loginPayload)
+  const token = await api.getToken()
 
   await page.addInitScript((token) => {
     window.localStorage.setItem('token', token);
-  },token );
-  
+  }, token);
+
   await page.goto('https://rahulshettyacademy.com/client');
 
   const order_id = await api.createOrder(order_payload)
@@ -28,13 +28,13 @@ test("try to place an order with api", async ({ page }) => {
   await page.locator("tbody").waitFor();
   const rows = await page.locator("tbody tr");
 
- await page.pause()
-  
+  await page.pause()
+
   for (let i = 0; i < await rows.count(); ++i) {
     const rowOrderId = await rows.nth(i).locator("th").textContent();
     if (rowOrderId.includes(order_id)) { // Reverse the order of comparison
-       await rows.nth(i).locator("button").first().click();
-       break;
+      await rows.nth(i).locator("button").first().click();
+      break;
     }
-}
+  }
 })
