@@ -5,6 +5,7 @@ let web_context;
 test.beforeAll("login", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
+ // await page.route("**/*.css", route => route.abort()) ------- kpaki css filery
   await page.goto("https://rahulshettyacademy.com/client/")
   await page.locator('#userEmail').fill("test+33@mailinator.com")
   await page.locator('#userPassword').fill('123456Tt@')
