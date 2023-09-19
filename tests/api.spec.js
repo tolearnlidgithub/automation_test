@@ -13,8 +13,7 @@ const product_name1 = 'ADIDAS ORIGINAL';                                        
 
 test("try to place an order with api", async ({ page }) => {
   const api_context = await request.newContext(); // Initialize api_context
-  page.on('request', request => console.log(request.url()))
-  page.on('response', response=> console.log(response))
+  
   const api = new Api(api_context, loginPayload)
   const token = await api.getToken()
 
@@ -28,6 +27,8 @@ test("try to place an order with api", async ({ page }) => {
 
   await page.locator("button[routerlink*='myorders']").click();
   await page.locator("tbody").waitFor();
+                                                              //expect(await page.screenshot()).toMatchSnapshot("spanshot.png")                    ////VISUAL SCRENNSHOT
+
   const rows = await page.locator("tbody tr");
 
   await page.pause()
