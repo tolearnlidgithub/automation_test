@@ -58,7 +58,11 @@ test('Api for place an order', async ({ page }) => {
     console.log(numberOfOrders)
 
     await page.locator("button[routerlink*='myorders']").click();  //click on orders
+    page.on('request', request => console.log(request.url()))
+  page.on('response', response=> console.log(response))
+    
     await page.locator(`tbody`).waitFor()  // wait for table
+    
     await page.pause()
     const order_id_columns = await page.locator('tbody tr th').allInnerTexts()
     console.log(order_id_columns)

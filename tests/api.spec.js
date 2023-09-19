@@ -13,6 +13,8 @@ const product_name1 = 'ADIDAS ORIGINAL';                                        
 
 test("try to place an order with api", async ({ page }) => {
   const api_context = await request.newContext(); // Initialize api_context
+  page.on('request', request => console.log(request.url()))
+  page.on('response', response=> console.log(response))
   const api = new Api(api_context, loginPayload)
   const token = await api.getToken()
 
