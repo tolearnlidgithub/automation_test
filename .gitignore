@@ -1,0 +1,7 @@
+node_modules/
+.github/
+playwright-report/
+playwright.config.js
+sdecreenshot.joeg
+storage.json
+
