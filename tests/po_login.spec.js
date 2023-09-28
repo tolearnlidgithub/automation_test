@@ -1,6 +1,6 @@
 const {test} =  require ('@playwright/test')
 
-const {LoginPage} =  require('../pageobject/LoginPage')
+const {LoginPage} =  require('../PAGE_OBJECT/LoginPage')
 
 
 test('@Client App login', async ({ page }) => {
