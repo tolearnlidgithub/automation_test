@@ -1,5 +1,5 @@
 const { test, expect, request } = require('@playwright/test');
-const { Api } = require('../tapi/Api')
+const { Api } = require('../Class_API/Api')
 
 const loginPayload = {
     userEmail: "sss@mailinator.com",

@@ -2,10 +2,8 @@ const { test, expect } = require('@playwright/test');
  
  
  
- 
 test('@Client App login', async ({ page }) => {
-   //js file- Login js, DashboardPage
-   const email = "sss@mailinator.com";
+    const email = "sss@mailinator.com";
     
    const products = page.locator(".card-body");
    await page.goto("https://rahulshettyacademy.com/client");
@@ -32,7 +30,7 @@ test('@Client App login', async ({ page }) => {
     const checkout = await page.locator('button:has-text("Checkout")').isVisible({ timeout: 10000 })
     await page.locator('button:has-text("Checkout")').click()
  
-   await page.locator("[placeholder*='Country']").type("ind");
+   await page.locator("[placeholder*='Country']").fill("ind");
  
    const dropdown = page.locator(".ta-results");
    await dropdown.waitFor();

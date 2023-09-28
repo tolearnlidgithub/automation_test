@@ -93,3 +93,33 @@ test('Api for place an order', async ({ page }) => {
 
 
 })
+
+
+/*** HISHEL let accessAllowed = (age > 18) ? true : false; */
+
+
+/**
+ * 
+ * 
+ * let age = prompt('Возраст?', 18);
+
+let message = (age < 3) ? 'Здравствуй, малыш!' :
+  (age < 18) ? 'Привет!' :
+  (age < 100) ? 'Здравствуйте!' :
+  'Какой необычный возраст!';
+
+alert( message );
+ * 
+
+
+
+
+
+
+let user;
+
+aler(user ?? "Asj")  es vonca ashxatum uremn checka anum ete usery undefined kam null chi uremn userna tpum, ete tenca uremn "Asj"
+
+|| возвращает первое истинное значение.
+?? возвращает первое определённое значение.
+ */

@@ -1,5 +1,5 @@
 const { test, expect, request } = require('@playwright/test');
-const { Api } = require('../tapi/Api')
+const { Api } = require('../Class_API/Api')
 
 const loginPayload = {
   userEmail: "sss@mailinator.com",
@@ -27,7 +27,7 @@ test("try to place an order with api", async ({ page }) => {
 
   await page.locator("button[routerlink*='myorders']").click();
   await page.locator("tbody").waitFor();
-                                                              //expect(await page.screenshot()).toMatchSnapshot("spanshot.png")                    ////VISUAL SCRENNSHOT
+                                                           //   expect(await page.screenshot()).toMatchSnapshot("spanshot.png")                    ////VISUAL SCRENNSHOT
 
   const rows = await page.locator("tbody tr");
 
