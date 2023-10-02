@@ -101,6 +101,28 @@ module.exports = defineConfig({
 
 
 
-// npm i -D allure ----- reportingi gamara
 
-/**kafras tag anes testery @ u iran kpac tagi anuny , clium  --grep @ tagi anuny kpac --reporter=line,allure-playwright*/ /**heto anelu es allure generate --clean */
+
+
+
+
+/***
+ * // npm i -D allure
+ * 
+ * 
+ * npx playwright test --reporter=line,allure-playwright
+ * allure generate --clean
+ *  allure open "path"
+ * 
+ * 
+ * 
+
+
+
+
+
+
+
+
+
+ */
