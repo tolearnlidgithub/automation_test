@@ -14,20 +14,23 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  retries:  1,
+  workers: 3,
   testDir: './tests',
   
   timeout: 30 * 1000,
   expect: {
     timeout:5000
   },
+
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+ // retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+ // workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -36,14 +39,25 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-  },
-
+    // trace: 'on-first-retry',
+    // screenshot: 'only-on-failure',
+    // viewport: {width:720, height: 720}
+  }
+,
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'] ,
+       screenshot: 'only-on-failure',
+      video: 'retain-on-failure',
+      trace: 'on',
+     // viewport: {width:720, height: 720}
+     //...devices['iphone 11'],
+    
+    
+    },
+       
     },
 
     // {
@@ -85,3 +99,8 @@ module.exports = defineConfig({
   // },
 });
 
+
+
+// npm i -D allure ----- reportingi gamara
+
+/**kafras tag anes testery @ u iran kpac tagi anuny , clium  --grep @ tagi anuny kpac --reporter=line,allure-playwright*/ /**heto anelu es allure generate --clean */
