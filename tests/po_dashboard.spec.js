@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const {DashboardPage}= require('../PAGE_OBJECT/DashboardPage')
  
  
-test('@Client App login', async ({ page }) => {
+test(' @Web Client App login', async ({ page }) => {
     const email = "sss@mailinator.com";
     
    const products = page.locator(".card-body");

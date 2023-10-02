@@ -48,3 +48,7 @@ test("try to place an order with api", async ({ page }) => {
 
 
 })
+ 
+
+/*** MI FILEI MEJ VONC ANES VOR ZUGAHER LINEN  */
+//test.describe.configure({mode: "serial"})
